@@ -1,0 +1,79 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: white;
+    color: black;
+    padding: 1rem;
+}
+
+.top-bar {
+    background-color: #f4a261;
+    height: 5vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
+}
+
+.back-button {
+    background-color: #f4a261;
+    border: 2px solid black;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.icons {
+    display: flex;
+    gap: 1rem;
+}
+
+.icon {
+    width: 24px;
+    height: 24px;
+}
+
+h1 {
+    text-align: center;
+    margin: 1.5rem 0;
+}
+
+.dish-card {
+    border: 1px solid black;
+    border-radius: 8px;
+    padding: 1rem;
+    background-color: white;
+}
+
+.dish-header {
+    background-color: #fdd835;
+    padding: 0.5rem;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 4px 4px 0 0;
+    margin-bottom: 1rem;
+}
+
+.dish-content p {
+    margin-bottom: 1rem;
+    text-align: left;
+}
+
+.ar-button {
+    display: block;
+    background-color: #fdd835;
+    border: 2px solid black;
+    border-radius: 8px;
+    padding: 1rem;
+    font-size: 1rem;
+    font-weight: bold;
+    margin: 1.5rem auto 0;
+    cursor: pointer;
+    width: 80%;
+    max-width: 300px;
+}
+
+.eye-icon {
+    margin-left: 0.5rem;
+}
