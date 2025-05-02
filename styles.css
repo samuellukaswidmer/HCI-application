@@ -8,52 +8,52 @@ body {
 
 .top-bar {
   background-color: #f4a261;
-  height: 40px;
+  height: 5vh; /* 40px approx as 5% of viewport height */
   width: 100%;
 }
 
 .header-icons {
   display: flex;
   justify-content: flex-end;
-  padding: 10px 20px;
-  gap: 20px;
+  padding: 2% 5%;
+  gap: 2%;
 }
 
 .icon {
-  width: 24px;
-  height: 24px;
+  width: 2.5%;
+  height: auto; /* Maintain aspect ratio */
   filter: hue-rotate(60deg) saturate(150%) brightness(0.9);
 }
 
 .container {
-  padding: 20px;
+  padding: 2%;
 }
 
 h1 {
-  font-size: 24px;
+  font-size: 2.5vw;
   font-weight: bold;
-  margin-bottom: 30px;
+  margin-bottom: 5%;
 }
 
 .logo {
-  width: 200px;
-  margin: 20px 0 40px;
+  width: 20%;
+  margin: 2% 0 5%;
 }
 
 .button-group {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 3%;
   align-items: center;
 }
 
 .yellow-button {
   background-color: #fdd835;
-  border: 2px solid black;
+  border: 0.2vw solid black;
   border-radius: 8px;
-  padding: 15px 40px;
-  font-size: 18px;
+  padding: 3% 10%;
+  font-size: 1.5vw;
   font-weight: bold;
   cursor: pointer;
-  width: 200px;
+  width: 20%;
 }
