@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tempura Udon Noodles</title>
+  <link rel="stylesheet" href="../assets/styles/item.css" />
+  <style>
+    .overlay {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: fixed;
+      inset: 0;
+      height: 100dvh;
+      text-align: center;
+      font-family: -apple-system, Helvetica, Arial, sans-serif;
+      background: #fff;
+      color: #333;
+      padding: 2rem;
+      z-index: 1000;
+      visibility: hidden;
+    }
+    .overlay.active { visibility: visible; }
+  </style>
+</head>
+<body>
+<div class="overlay" id="msg">Loading AR viewer…</div>
+
+<div class="top-bar">
+  <button class="back-button" onclick="history.back()">Back</button>
+  <div class="icons">
+    <img src="../assets/images/shopping-cart.svg" class="icon" alt="Cart" />
+    <img src="../assets/images/language-symbol.svg" class="icon" alt="Language" />
+  </div>
+</div>
+
+<h1>Tempura Udon Noodles</h1>
+<div class="dish-card">
+  <div class="dish-header">Dish Details</div>
+  <div class="dish-content">
+    <p><strong>Description:</strong><br />
+      A quick and satisfying meal of thick, chewy udon noodles in a savory, umami-rich broth with tempura flavor. Includes dried vegetables, fish cake slices, and crunchy tempura flakes for added texture.</p>
+
+    <p><strong>Ingredients:</strong><br />
+      Udon noodles (wheat flour, salt), tempura flakes (wheat, palm oil), fish cake, dehydrated vegetables (green onion, carrot), soy sauce powder, bonito extract, seasoning powder (flavor enhancers, salt, sugar, spices).</p>
+
+    <p><strong>Allergens:</strong><br />
+      Contains gluten, soy, fish.<br />
+      May contain traces of eggs, milk, crustaceans, and sesame.</p>
+
+    <p><strong>Meat Content:</strong><br />
+      No meat content. Fish-based flavor.<br />
+      Gluten-Free: No.</p>
+
+    <p><strong>Macros (per serving):</strong><br />
+      Calories: 450 kcal<br />
+      Protein: 9g<br />
+      Carbohydrates: 60g<br />
+      Fat: 18g<br />
+      Fiber: 3g<br />
+      Sugar: 4g</p>
+  </div>
+</div>
+
+<button class="ar-button">View in AR <span class="eye-icon">👁️</span></button>
+<script>
+  const params = new URLSearchParams(location.search);
+  const model = params.get('model') || 'Tempura_Udon_Bowl';
+
+  const link = document.createElement('a');
+  link.setAttribute('rel', 'ar');
+  link.setAttribute('href', `../assets/models/${model}.usdz`);
+  document.body.appendChild(link);
+
+  const arBtn = document.querySelector('.ar-button');
+  const overlay = document.getElementById('msg');
+
+  function showOverlay(text) {
+    overlay.textContent = text;
+    overlay.classList.add('active');
+  }
+
+  function hideOverlay() {
+    overlay.classList.remove('active');
+  }
+
+  arBtn.addEventListener('click', () => {
+    showOverlay('Loading AR viewer…');
+    link.click();
+  });
+
+  link.addEventListener('click', () => {
+    showOverlay('If the AR viewer did not open, tap ALLOW or use Safari on iOS 13 +.');
+  });
+
+  window.addEventListener('focus', hideOverlay);
+</script>
+</body>
+</html>
