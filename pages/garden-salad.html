@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Caesar Salad</title>
+  <title>Garden Salad</title>
   <link rel="stylesheet" href="../assets/styles/styles.css" />
   <style>
     .overlay {
@@ -45,34 +45,33 @@
     </div>
   </div>
 </div>
-</div>
 
-<h1>Caesar Salad</h1>
+<h1>Garden Salad</h1>
 
 <div class="dish-card">
   <div class="dish-header">Dish Details</div>
 
   <div class="dish-content">
     <p><strong>Description:</strong><br />
-      Tender grilled chicken served on a bed of crisp romaine lettuce, tossed with creamy Caesar dressing, crunchy croutons, and grated parmesan cheese.</p>
+      A vibrant salad featuring a blend of fresh leafy greens and sweet cherry tomatoes, served in a wooden bowl. A light and healthy option.</p>
 
     <p><strong>Ingredients:</strong><br />
-      Chicken breast, romaine lettuce, Caesar dressing (contains egg, dairy), croutons (contains gluten), parmesan cheese, cherry tomatoes, olive oil, lemon juice, black pepper, garlic powder.</p>
+      Mixed greens (arugula, frisée, romaine, radicchio), cherry tomatoes, olive oil, lemon juice, salt, pepper.</p>
 
     <p><strong>Allergens:</strong><br />
-      Contains dairy, eggs, gluten.</p>
+      None.</p>
 
     <p><strong>Meat Content:</strong><br />
-      Contains chicken.<br />
-      Gluten‑Free: No (contains croutons with gluten).</p>
+      Vegetarian.<br />
+      Gluten‑Free: Yes.</p>
 
     <p><strong>Macros (per serving):</strong><br />
-      Calories: 450 kcal<br />
-      Protein: 35g<br />
-      Carbohydrates: 22g<br />
-      Fat: 28g<br />
-      Fiber: 4g<br />
-      Sugar: 4g</p>
+      Calories: 120 kcal<br />
+      Protein: 3g<br />
+      Carbohydrates: 8g<br />
+      Fat: 9g<br />
+      Fiber: 3g<br />
+      Sugar: 5g</p>
   </div>
 </div>
 
@@ -81,9 +80,8 @@
 </button>
 
 <script>
-
   const params = new URLSearchParams(location.search);
-  const model = params.get('model') || 'Bowl_with_salad';
+  const model = params.get('model') || 'Garden_Salad_Bowl';
 
   const link = document.createElement('a');
   link.setAttribute('rel', 'ar');
