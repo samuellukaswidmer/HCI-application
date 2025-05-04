@@ -3,8 +3,26 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Spaghetti Bolognese</title>
+  <title>Spaghetti with Meatballs & Sausage</title>
   <link rel="stylesheet" href="../assets/styles/styles.css" />
+  <style>
+    .overlay {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: fixed;
+      inset: 0;
+      height: 100dvh;
+      text-align: center;
+      font-family: -apple-system, Helvetica, Arial, sans-serif;
+      background: #fff;
+      color: #333;
+      padding: 2rem;
+      z-index: 1000;
+      visibility: hidden;
+    }
+    .overlay.active { visibility: visible; }
+  </style>
 </head>
 <body>
 <div class="overlay" id="msg">Loading AR viewer…</div>
@@ -28,38 +46,38 @@
   </div>
 </div>
 
-<h1>Spaghetti Bolognese</h1>
+<h1>Spaghetti with Meatballs & Sausage</h1>
+
 <div class="dish-card">
   <div class="dish-header">Dish Details</div>
   <div class="dish-content">
     <p><strong>Description:</strong><br />
-      Traditional Italian spaghetti topped with a rich beef and tomato sauce, garnished with fresh basil and parmesan.</p>
+      A hearty Italian classic featuring al dente spaghetti topped with slow-simmered marinara sauce, homemade beef meatballs, and grilled Italian sausage links.</p>
 
     <p><strong>Ingredients:</strong><br />
-      Spaghetti (contains gluten), ground beef, tomato sauce, basil, parmesan cheese, onion, garlic, olive oil, salt, pepper.</p>
+      Spaghetti (contains gluten), beef meatballs (beef, breadcrumbs, egg, parsley, spices), Italian sausage (pork), tomato sauce, garlic, onion, basil, olive oil, salt, pepper, parmesan (optional).</p>
 
     <p><strong>Allergens:</strong><br />
-      Contains gluten, dairy.</p>
+      Contains gluten, egg, possibly dairy (if cheese is added).</p>
 
     <p><strong>Meat Content:</strong><br />
-      Contains beef.<br />
+      Contains beef and pork.<br />
       Gluten-Free: No.</p>
 
     <p><strong>Macros (per serving):</strong><br />
-      Calories: 550 kcal<br />
-      Protein: 30g<br />
-      Carbohydrates: 60g<br />
-      Fat: 20g<br />
-      Fiber: 6g<br />
-      Sugar: 8g</p>
+      Calories: 690 kcal<br />
+      Protein: 35g<br />
+      Carbohydrates: 55g<br />
+      Fat: 35g<br />
+      Fiber: 5g<br />
+      Sugar: 6g</p>
   </div>
 </div>
 
 <button class="ar-button">View in AR <span class="eye-icon">👁️</span></button>
 <script>
-
   const params = new URLSearchParams(location.search);
-  const model = params.get('model') || 'Bowl_with_salad';
+  const model = params.get('model') || 'Spaghetti_Meatballs_Sausage';
 
   const link = document.createElement('a');
   link.setAttribute('rel', 'ar');
