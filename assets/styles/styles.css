@@ -245,6 +245,13 @@ h1 {
     justify-content: space-between;
     align-items: center;
     padding: 1rem 1rem 0.5rem;
+    width: 100%;
+    box-sizing: border-box;
   }
+
+  .back-button {
+    margin: 0; /* remove auto-centering */
+  }
+
 
 }

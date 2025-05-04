@@ -7,11 +7,24 @@
   <link rel="stylesheet" href="../assets/styles/styles.css" />
 </head>
 <body>
+<div class="header-bar">
   <button class="back-button" onclick="history.back()">Back</button>
+
   <div class="icons">
     <img src="../assets/images/shopping-cart.svg" class="icon" alt="Cart" />
-    <img src="../assets/images/language-symbol.svg" class="icon" alt="Language" />
+    <div class="language-dropdown">
+      <button class="language-button" onclick="toggleLanguageSelect()">
+        <img src="../assets/images/language-symbol.svg" alt="Language" class="icon" />
+      </button>
+      <select id="language-select" onchange="changeLanguage(this.value)" class="hidden">
+        <option value="en">English</option>
+        <option value="de">Deutsch</option>
+        <option value="it">Italiano</option>
+        <option value="fr">Français</option>
+      </select>
+    </div>
   </div>
+</div>
 </div>
 
 <h1>Shrimp Tempura</h1>
