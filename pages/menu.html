@@ -2,18 +2,31 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <title>Menu</title>
-    <link rel="stylesheet" href="../assets/styles/menu.css" />
+    <link rel="stylesheet" href="../assets/styles/styles.css" />
 </head>
 <body>
-<div class="top-bar">
+
+<!-- Orange app bar BELOW the iOS status bar -->
+<div class="header-bar">
     <button class="back-button" onclick="history.back()">Back</button>
     <div class="icons">
         <img src="../assets/images/shopping-cart.svg" class="icon" alt="Cart" />
-        <img src="../assets/images/language-symbol.svg" class="icon" alt="Language" />
+        <div class="language-dropdown">
+            <button class="language-button" onclick="toggleLanguageSelect()">
+                <img src="../assets/images/language-symbol.svg" alt="Language" class="icon" />
+            </button>
+            <select id="language-select" onchange="changeLanguage(this.value)" class="hidden">
+                <option value="en">English</option>
+                <option value="de">Deutsch</option>
+                <option value="it">Italiano</option>
+                <option value="fr">Français</option>
+            </select>
+        </div>
     </div>
 </div>
+
 
 <h1>Menu</h1>
 
@@ -23,7 +36,9 @@
             <a href="caesar-salad.html" class="item-name">Caesar Salad</a>
             <span class="item-add">+</span>
         </div>
-        <p class="item-description">Tender grilled chicken served on a bed of crisp romaine lettuce, tossed with creamy Caesar dressing, crunchy croutons, and grated parmesan cheese.</p>
+        <p class="item-description">
+            Tender grilled chicken served on a bed of crisp romaine lettuce, tossed with creamy Caesar dressing, crunchy croutons, and grated parmesan cheese.
+        </p>
     </div>
 
     <div class="menu-item">
@@ -31,7 +46,9 @@
             <a href="spaghetti.html" class="item-name">Spaghetti Bolognese</a>
             <span class="item-add">+</span>
         </div>
-        <p class="item-description">Traditional Italian spaghetti topped with a rich beef and tomato sauce, garnished with fresh basil and parmesan.</p>
+        <p class="item-description">
+            Traditional Italian spaghetti topped with a rich beef and tomato sauce, garnished with fresh basil and parmesan.
+        </p>
     </div>
 
     <div class="menu-item">
@@ -39,7 +56,9 @@
             <a href="shrimp.html" class="item-name">Shrimp Tempura</a>
             <span class="item-add">+</span>
         </div>
-        <p class="item-description">Crispy battered shrimp served with a soy dipping sauce.</p>
+        <p class="item-description">
+            Crispy battered shrimp served with a soy dipping sauce.
+        </p>
     </div>
 
     <div class="menu-item">
@@ -47,7 +66,9 @@
             <a href="risotto.html" class="item-name">Truffle Mushroom Risotto</a>
             <span class="item-add">+</span>
         </div>
-        <p class="item-description">Creamy risotto with truffle oil and sautéed mushrooms.</p>
+        <p class="item-description">
+            Creamy risotto with truffle oil and sautéed mushrooms.
+        </p>
     </div>
 
     <div class="menu-item">
@@ -67,5 +88,7 @@
     </div>
 
 </div>
+
+<script src="../assets/scripts/language.js"></script>
 </body>
 </html>

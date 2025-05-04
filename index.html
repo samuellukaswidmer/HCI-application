@@ -4,15 +4,27 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Restaurant Metzgertor</title>
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="assets/styles/styles.css" />
 </head>
 <body>
-  <div class="top-bar"></div>
 
   <div class="header-icons">
     <img src="assets/images/shopping-cart.svg" alt="Cart" class="icon" />
-    <img src="assets/images/language-symbol.svg" alt="Language" class="icon" />
+
+    <div class="language-dropdown">
+      <button class="language-button" onclick="toggleLanguageSelect()">
+        <img src="assets/images/language-symbol.svg" alt="Language" class="icon" />
+      </button>
+      <select id="language-select" onchange="changeLanguage(this.value)" class="hidden">
+        <option value="en">English</option>
+        <option value="de">Deutsch</option>
+        <option value="it">Italiano</option>
+        <option value="fr">Français</option>
+      </select>
+    </div>
   </div>
+
+
 
   <div class="container">
     <h1>Welcome to Restaurant<br>Metzgertor!</h1>
@@ -25,5 +37,9 @@
       <button class="yellow-button" onclick="location.href='pages/drinks.html'">Drinks</button>
     </div>
   </div>
+
+  <script src="assets/scripts/language.js"></script>
+
+
 </body>
 </html>

@@ -1,0 +1,250 @@
+/* === Base Styles === */
+html {
+  font-size: 16px;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: white;
+  color: black;
+  padding: 1rem;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+/* === Typography === */
+h1 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 1.5rem 0;
+  text-align: center;
+}
+
+/* === Top Bar (includes iOS status bar area) === */
+.top-bar {
+  background-color: #f4a261;
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: 0.7rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  margin-top: calc(-1 * env(safe-area-inset-top));
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 1;
+}
+
+/* === Containers === */
+.container {
+  padding: 1.5rem;
+}
+
+.header-icons,
+.icons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+/* === Buttons === */
+.yellow-button,
+.ar-button {
+  background-color: #fdd835;
+  border: 2px solid black;
+  border-radius: 8px;
+  padding: 1rem;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.yellow-button {
+  border-radius: 10px;
+  padding: 1rem 2rem;
+  width: 80%;
+  max-width: 300px;
+}
+
+.back-button {
+  background-color: #f4a261;
+  border: 0.15rem solid black;
+  padding: 0.6vh 4vw;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 0.8rem;
+  cursor: pointer;
+  box-shadow: 0.4vh 0.4vh 0 black;
+  transition: transform 0.1s ease;
+  min-width: 25vw;
+  text-align: center;
+}
+
+.back-button:active {
+  transform: translateY(0.2vh);
+  box-shadow: 0.2vh 0.2vh 0 black;
+}
+
+.button-group {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+}
+
+/* === Icons === */
+.icon {
+  width: 1.8rem;
+  height: 1.8rem;
+  filter: hue-rotate(60deg) saturate(150%) brightness(0.9);
+}
+
+.eye-icon {
+  width: 20px;
+  height: 20px;
+  margin-left: 0.5rem;
+  vertical-align: middle;
+}
+
+/* === Logo === */
+.logo {
+  width: 60%;
+  max-width: 250px;
+  margin: 1rem 0 2rem;
+}
+
+/* === Menu === */
+.menu-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.menu-item {
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 1rem;
+  overflow: hidden;
+  margin: 2vh auto;
+  padding: 0;
+  width: 90%;
+  max-width: 500px;
+  box-sizing: border-box;
+}
+
+.item-header {
+  background-color: #fdd835;
+  padding: 1rem;
+  font-weight: bold;
+  font-size: 1.1rem;
+  border-radius: 1rem 1rem 0 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.item-name {
+  flex-grow: 1;
+  text-align: left;
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+
+.item-add {
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.item-description {
+  padding: 1rem;
+  text-align: left;
+}
+
+/* === Dish Detail === */
+.dish-card {
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 1rem;
+  overflow: hidden;
+  margin: 2vh auto;
+  padding: 0;
+  width: 90%;
+  max-width: 500px;
+  box-sizing: border-box;
+}
+
+.dish-header {
+  background-color: #fdd835;
+  padding: 1rem;
+  font-weight: bold;
+  font-size: 1.1rem;
+  border-radius: 1rem 1rem 0 0;
+  text-align: center;
+}
+
+.dish-content {
+  padding: 1rem;
+  text-align: left;
+}
+
+/* === Language Dropdown === */
+.language-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.language-button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+#language-select {
+  position: absolute;
+  top: 2.5rem;
+  right: 0;
+  font-size: 1rem;
+  padding: 4px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.hidden {
+  display: none;
+}
+
+/* === Responsive Adjustments === */
+@media (min-width: 768px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  .logo {
+    width: 30%;
+  }
+
+  .yellow-button {
+    font-size: 1.2rem;
+    width: 250px;
+  }
+
+  .menu-item,
+  .dish-card {
+    max-width: 600px;
+  }
+
+  .header-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1rem 0.5rem;
+  }
+
+}
