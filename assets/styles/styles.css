@@ -105,20 +105,19 @@ h1 {
 .dish-card {
   border: 1px solid black;
   border-radius: 8px;
-  padding: 1rem;
   background-color: white;
+  overflow: hidden; /* Ensures corners are clean */
+  padding: 0;
+  margin: 1rem auto;
+  max-width: 800px;
 }
 
 .dish-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   background-color: #fdd835;
   padding: 0.5rem;
   font-weight: bold;
-  border-radius: 4px 4px 0 0;
   text-align: center;
-  margin-bottom: 1rem;
+  border-radius: 8px 8px 0 0;
 }
 
 .item-name {
@@ -131,12 +130,10 @@ h1 {
   cursor: pointer;
 }
 
-.dish-content p {
-  margin-top: 0.5rem;
-  margin-bottom: 1rem;
+.dish-content {
+  padding: 1rem;
   text-align: left;
 }
-
 /* === Language Dropdown === */
 .language-dropdown {
   position: relative;
