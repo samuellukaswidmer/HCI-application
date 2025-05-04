@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Seafood Paella</title>
+  <link rel="stylesheet" href="../assets/styles/styles.css" />
+  <style>
+    .overlay {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: fixed;
+      inset: 0;
+      height: 100dvh;
+      text-align: center;
+      font-family: -apple-system, Helvetica, Arial, sans-serif;
+      background: #fff;
+      color: #333;
+      padding: 2rem;
+      z-index: 1000;
+      visibility: hidden;
+    }
+    .overlay.active { visibility: visible; }
+  </style>
+</head>
+<body>
+<div class="overlay" id="msg">Loading AR viewer…</div>
+
+<div class="header-bar">
+  <button class="back-button" onclick="history.back()">Back</button>
+
+  <div class="icons">
+    <img src="../assets/images/shopping-cart.svg" class="icon" alt="Cart" />
+    <div class="language-dropdown">
+      <button class="language-button" onclick="toggleLanguageSelect()">
+        <img src="../assets/images/language-symbol.svg" alt="Language" class="icon" />
+      </button>
+      <select id="language-select" onchange="changeLanguage(this.value)" class="hidden">
+        <option value="en">English</option>
+        <option value="de">Deutsch</option>
+        <option value="it">Italiano</option>
+        <option value="fr">Français</option>
+      </select>
+    </div>
+  </div>
+</div>
+
+<h1>Seafood Paella</h1>
+
+<div class="dish-card">
+  <div class="dish-header">Dish Details</div>
+  <div class="dish-content">
+    <p><strong>Description:</strong><br />
+      A traditional Spanish rice dish infused with saffron and simmered in a rich seafood broth. Topped with mussels, shrimp, bell peppers, and a fresh lemon wedge.</p>
+
+    <p><strong>Ingredients:</strong><br />
+      Bomba rice, mussels, shrimp, bell peppers, green beans, tomatoes, garlic, onion, olive oil, saffron, paprika, seafood broth, lemon.</p>
+
+    <p><strong>Allergens:</strong><br />
+      Contains shellfish.</p>
+
+    <p><strong>Meat Content:</strong><br />
+      Contains seafood (mussels, shrimp).<br />
+      Gluten-Free: Yes.</p>
+
+    <p><strong>Macros (per serving):</strong><br />
+      Calories: 520 kcal<br />
+      Protein: 26g<br />
+      Carbohydrates: 58g<br />
+      Fat: 18g<br />
+      Fiber: 5g<br />
+      Sugar: 4g</p>
+  </div>
+</div>
+
+<button class="ar-button">View in AR <span class="eye-icon">👁️</span></button>
+
+<script>
+  const params = new URLSearchParams(location.search);
+  const model = params.get('model') || 'Seafood_Paella';
+
+  const link = document.createElement('a');
+  link.setAttribute('rel', 'ar');
+  link.setAttribute('href', `../assets/models/${model}.usdz`);
+  document.body.appendChild(link);
+
+  const arBtn = document.querySelector('.ar-button');
+  const overlay = document.getElementById('msg');
+
+  function showOverlay(text) {
+    overlay.textContent = text;
+    overlay.classList.add('active');
+  }
+
+  function hideOverlay() {
+    overlay.classList.remove('active');
+  }
+
+  arBtn.addEventListener('click', () => {
+    showOverlay('Loading AR viewer…');
+    link.click();
+  });
+
+  link.addEventListener('click', () => {
+    showOverlay('If the AR viewer did not open, tap ALLOW or use Safari on iOS 13 +.');
+  });
+
+  window.addEventListener('focus', hideOverlay);
+</script>
+</body>
+</html>
