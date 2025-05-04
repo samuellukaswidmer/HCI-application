@@ -44,7 +44,6 @@ h1 {
 }
 
 /* === Buttons === */
-.back-button,
 .yellow-button,
 .ar-button {
   background-color: #fdd835;
@@ -58,7 +57,24 @@ h1 {
 
 .back-button {
   background-color: #f4a261;
+  border: 0.15rem solid black;
+  padding: 0.6vh 4vw;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 0.8rem;
+  cursor: pointer;
+  box-shadow: 0.4vh 0.4vh 0 black;
+  transition: transform 0.1s ease;
+  min-width: 25vw;
+  text-align: center;
 }
+
+.back-button:active {
+  transform: translateY(0.2vh);
+  box-shadow: 0.2vh 0.2vh 0 black;
+}
+
+
 
 .yellow-button {
   border-radius: 10px;
@@ -112,13 +128,18 @@ h1 {
   max-width: 800px;
 }
 
+.item-header,
 .dish-header {
   background-color: #fdd835;
-  padding: 0.5rem;
+  padding: 1rem;
   font-weight: bold;
-  text-align: center;
-  border-radius: 8px 8px 0 0;
+  font-size: 1.1rem;
+  border-radius: 1rem 1rem 0 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
+
 
 .item-name {
   flex-grow: 1;
@@ -177,24 +198,20 @@ h1 {
     font-size: 1.2rem;
     width: 250px;
   }
-  .menu-item {
-    border: 1px solid black;
-    border-radius: 8px;
-    overflow: hidden; /* This ensures children respect the border radius */
-    padding: 0; /* Remove padding to prevent inner spacing issues */
+
+  .menu-item,
+  .dish-card {
     background-color: white;
+    border: 1px solid black;
+    border-radius: 1rem;
+    overflow: hidden;
+    margin: 2vh auto;
+    padding: 0;
+    width: 90%;
+    max-width: 500px;
   }
 
-  .item-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #fdd835;
-    padding: 0.5rem;
-    font-weight: bold;
-    border-radius: 8px 8px 0 0; /* Match container */
-    margin: 0; /* Remove margin to align with edges */
-  }
+
 
   .item-description {
     padding: 1rem; /* Add padding here instead of to container */
