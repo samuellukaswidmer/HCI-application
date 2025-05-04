@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="../assets/styles/styles.css" />
 </head>
 <body>
+<div class="overlay" id="msg">Loading AR viewer…</div>
 
 <div class="header-bar">
   <button class="back-button" onclick="history.back()">Back</button>
@@ -25,7 +26,6 @@
       </select>
     </div>
   </div>
-</div>
 </div>
 
 <h1>Spaghetti Bolognese</h1>
@@ -55,8 +55,39 @@
   </div>
 </div>
 
-<button class="ar-button">View in AR
-  <img src="../eye.svg" class = "eye-icon" alt="View Icon">
-</button>
+<button class="ar-button">View in AR <span class="eye-icon">👁️</span></button>
+<script>
+
+  const params = new URLSearchParams(location.search);
+  const model = params.get('model') || 'Bowl_with_salad';
+
+  const link = document.createElement('a');
+  link.setAttribute('rel', 'ar');
+  link.setAttribute('href', `../assets/models/${model}.usdz`);
+  document.body.appendChild(link);
+
+  const arBtn = document.querySelector('.ar-button');
+  const overlay = document.getElementById('msg');
+
+  function showOverlay(text) {
+    overlay.textContent = text;
+    overlay.classList.add('active');
+  }
+
+  function hideOverlay() {
+    overlay.classList.remove('active');
+  }
+
+  arBtn.addEventListener('click', () => {
+    showOverlay('Loading AR viewer…');
+    link.click();
+  });
+
+  link.addEventListener('click', () => {
+    showOverlay('If the AR viewer did not open, tap ALLOW or use Safari on iOS 13 +.');
+  });
+
+  window.addEventListener('focus', hideOverlay);
+</script>
 </body>
 </html>

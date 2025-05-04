@@ -6,7 +6,6 @@
   <title>Caesar Salad</title>
   <link rel="stylesheet" href="../assets/styles/styles.css" />
   <style>
-    /* ---------- AR overlay (borrowed from backpack demo) ---------- */
     .overlay {
       display: flex;
       align-items: center;
@@ -20,13 +19,12 @@
       color: #333;
       padding: 2rem;
       z-index: 1000;
-      visibility: hidden; /* initially hidden – appears when AR launches */
+      visibility: hidden;
     }
     .overlay.active { visibility: visible; }
   </style>
 </head>
 <body>
-<!-- Overlay shown while Quick‑Look is loading or on return -->
 <div class="overlay" id="msg">Loading AR viewer…</div>
 
 <div class="header-bar">
