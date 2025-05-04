@@ -10,6 +10,7 @@ body {
   color: black;
   padding: 1rem;
   text-align: center;
+  box-sizing: border-box;
 }
 
 /* === Typography === */
@@ -20,17 +21,24 @@ h1 {
   text-align: center;
 }
 
-/* === Layout Containers === */
+/* === Top Bar (includes iOS status bar area) === */
 .top-bar {
   background-color: #f4a261;
-  height: 5vh;
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: 0.7rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  margin-top: calc(-1 * env(safe-area-inset-top));
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.5rem 1rem;
   width: 100%;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 1;
 }
 
+/* === Containers === */
 .container {
   padding: 1.5rem;
 }
@@ -40,7 +48,6 @@ h1 {
   display: flex;
   justify-content: flex-end;
   gap: 1rem;
-  padding: 1rem;
 }
 
 /* === Buttons === */
@@ -53,6 +60,13 @@ h1 {
   font-size: 1rem;
   font-weight: bold;
   cursor: pointer;
+}
+
+.yellow-button {
+  border-radius: 10px;
+  padding: 1rem 2rem;
+  width: 80%;
+  max-width: 300px;
 }
 
 .back-button {
@@ -72,15 +86,6 @@ h1 {
 .back-button:active {
   transform: translateY(0.2vh);
   box-shadow: 0.2vh 0.2vh 0 black;
-}
-
-
-
-.yellow-button {
-  border-radius: 10px;
-  padding: 1rem 2rem;
-  width: 80%;
-  max-width: 300px;
 }
 
 .button-group {
@@ -111,25 +116,26 @@ h1 {
   margin: 1rem 0 2rem;
 }
 
-/* === Menu Page === */
+/* === Menu === */
 .menu-list {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
 }
 
-.dish-card {
-  border: 1px solid black;
-  border-radius: 8px;
+.menu-item {
   background-color: white;
-  overflow: hidden; /* Ensures corners are clean */
+  border: 1px solid black;
+  border-radius: 1rem;
+  overflow: hidden;
+  margin: 2vh auto;
   padding: 0;
-  margin: 1rem auto;
-  max-width: 800px;
+  width: 90%;
+  max-width: 500px;
+  box-sizing: border-box;
 }
 
-.item-header,
-.dish-header {
+.item-header {
   background-color: #fdd835;
   padding: 1rem;
   font-weight: bold;
@@ -140,10 +146,12 @@ h1 {
   align-items: center;
 }
 
-
 .item-name {
   flex-grow: 1;
   text-align: left;
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
 }
 
 .item-add {
@@ -151,10 +159,38 @@ h1 {
   cursor: pointer;
 }
 
+.item-description {
+  padding: 1rem;
+  text-align: left;
+}
+
+/* === Dish Detail === */
+.dish-card {
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 1rem;
+  overflow: hidden;
+  margin: 2vh auto;
+  padding: 0;
+  width: 90%;
+  max-width: 500px;
+  box-sizing: border-box;
+}
+
+.dish-header {
+  background-color: #fdd835;
+  padding: 1rem;
+  font-weight: bold;
+  font-size: 1.1rem;
+  border-radius: 1rem 1rem 0 0;
+  text-align: center;
+}
+
 .dish-content {
   padding: 1rem;
   text-align: left;
 }
+
 /* === Language Dropdown === */
 .language-dropdown {
   position: relative;
@@ -170,7 +206,7 @@ h1 {
 
 #language-select {
   position: absolute;
-  top: 30px;
+  top: 2.5rem;
   right: 0;
   font-size: 1rem;
   padding: 4px;
@@ -201,23 +237,6 @@ h1 {
 
   .menu-item,
   .dish-card {
-    background-color: white;
-    border: 1px solid black;
-    border-radius: 1rem;
-    overflow: hidden;
-    margin: 2vh auto;
-    padding: 0;
-    width: 90%;
-    max-width: 500px;
+    max-width: 600px;
   }
-
-
-
-  .item-description {
-    padding: 1rem; /* Add padding here instead of to container */
-    text-align: left;
-  }
-
-
-
 }
