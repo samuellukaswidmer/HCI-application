@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Toasted Cheese & Landjäger Sandwich</title>
+  <link rel="stylesheet" href="../assets/styles/item.css" />
+  <style>
+    .overlay {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: fixed;
+      inset: 0;
+      height: 100dvh;
+      text-align: center;
+      font-family: -apple-system, Helvetica, Arial, sans-serif;
+      background: #fff;
+      color: #333;
+      padding: 2rem;
+      z-index: 1000;
+      visibility: hidden;
+    }
+    .overlay.active { visibility: visible; }
+  </style>
+</head>
+<body>
+<div class="overlay" id="msg">Loading AR viewer…</div>
+
+<div class="top-bar">
+  <button class="back-button" onclick="history.back()">Back</button>
+  <div class="icons">
+    <img src="../assets/images/shopping-cart.svg" class="icon" alt="Cart" />
+    <img src="../assets/images/language-symbol.svg" class="icon" alt="Language" />
+  </div>
+</div>
+
+<h1>Toasted Cheese & Landjäger Sandwich</h1>
+<div class="dish-card">
+  <div class="dish-header">Dish Details</div>
+  <div class="dish-content">
+    <p><strong>Description:</strong><br />
+      A hearty toasted sandwich featuring bold Appenzeller cheese melted over slices of traditional Landjäger sausage, with tangy pickles and zesty Dijon mustard layered inside. Comes with ketchup on the side.</p>
+
+    <p><strong>Ingredients:</strong><br />
+      Appenzeller cheese (contains dairy), Landjäger sausage (pork/beef), Dijon mustard, pickles, ketchup, sandwich bread (contains gluten), butter.</p>
+
+    <p><strong>Allergens:</strong><br />
+      Contains gluten, dairy, mustard.</p>
+
+    <p><strong>Meat Content:</strong><br />
+      Contains pork and beef (Landjäger).<br />
+      Gluten-Free: No.</p>
+
+    <p><strong>Macros (per serving):</strong><br />
+      Calories: 610 kcal<br />
+      Protein: 28g<br />
+      Carbohydrates: 45g<br />
+      Fat: 35g<br />
+      Fiber: 3g<br />
+      Sugar: 6g</p>
+  </div>
+</div>
+
+<button class="ar-button">View in AR <span class="eye-icon">👁️</span></button>
+<script>
+  const params = new URLSearchParams(location.search);
+  const model = params.get('model') || 'Toasted_Cheese_Sandwich';
+
+  const link = document.createElement('a');
+  link.setAttribute('rel', 'ar');
+  link.setAttribute('href', `../assets/models/${model}.usdz`);
+  document.body.appendChild(link);
+
+  const arBtn = document.querySelector('.ar-button');
+  const overlay = document.getElementById('msg');
+
+  function showOverlay(text) {
+    overlay.textContent = text;
+    overlay.classList.add('active');
+  }
+
+  function hideOverlay() {
+    overlay.classList.remove('active');
+  }
+
+  arBtn.addEventListener('click', () => {
+    showOverlay('Loading AR viewer…');
+    link.click();
+  });
+
+  link.addEventListener('click', () => {
+    showOverlay('If the AR viewer did not open, tap ALLOW or use Safari on iOS 13 +.');
+  });
+
+  window.addEventListener('focus', hideOverlay);
+</script>
+</body>
+</html>
