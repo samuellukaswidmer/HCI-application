@@ -241,26 +241,45 @@ h1 {
   }
 
   /* === Header Bar (Back + Icons) === */
-  /* move this OUTSIDE the media query so it runs on all screens */
+  /* apply on ALL viewports */
   .header-bar {
     display: flex;
-    justify-content: space-between;   /* back‑button left, icons right  */
+    justify-content: space-between;       /* back on the left, icons on the right */
     align-items: center;
-    padding: 1rem 1rem 0.5rem;
+    padding: env(safe-area-inset-top) 1rem 0.5rem;
     width: 100%;
     box-sizing: border-box;
   }
 
-  /* — optional, but keeps the button from auto‑centring — */
+  /* === Back button === */
   .back-button {
-    margin: 0;          /* wipe any inherited centring */
-    margin-right: auto; /* push the icon block to the far side */
+    background-color: #f4a261;
+    border: 0.15rem solid #000;
+    padding: 0.6rem 2rem;                 /* same chunky padding as desktop */
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 0.8rem;
+    cursor: pointer;
+    box-shadow: 0.4rem 0.4rem 0 #000;
+    transition: transform 0.1s ease;
+
+    /* key tweaks for mobile */
+    width: max-content;                   /* shrink to fit the text */
+    min-width: 140px;                     /* but never get too small */
+    margin: 0;                            /* kill inherited centring */
+    margin-right: auto;                   /* pin it hard to the left side */
   }
 
-  /* keep any extra desktop tweaks behind the media query if you need them */
-  @media (min-width: 768px) {
-    /* …desktop‑only overrides (if any) */
+  .back-button:active {
+    transform: translateY(0.2rem);
+    box-shadow: 0.2rem 0.2rem 0 #000;
   }
+
+  /* keep any **desktop‑only** overrides down here */
+  @media (min-width: 768px) {
+    /* put extra desktop tweaks here if you ever need them */
+  }
+
 
 
 
