@@ -102,7 +102,6 @@ h1 {
   gap: 1.5rem;
 }
 
-.menu-item,
 .dish-card {
   border: 1px solid black;
   border-radius: 8px;
@@ -110,7 +109,6 @@ h1 {
   background-color: white;
 }
 
-.item-header,
 .dish-header {
   display: flex;
   justify-content: space-between;
@@ -133,7 +131,6 @@ h1 {
   cursor: pointer;
 }
 
-.item-description,
 .dish-content p {
   margin-top: 0.5rem;
   margin-bottom: 1rem;
@@ -183,4 +180,30 @@ h1 {
     font-size: 1.2rem;
     width: 250px;
   }
+  .menu-item {
+    border: 1px solid black;
+    border-radius: 8px;
+    overflow: hidden; /* This ensures children respect the border radius */
+    padding: 0; /* Remove padding to prevent inner spacing issues */
+    background-color: white;
+  }
+
+  .item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fdd835;
+    padding: 0.5rem;
+    font-weight: bold;
+    border-radius: 8px 8px 0 0; /* Match container */
+    margin: 0; /* Remove margin to align with edges */
+  }
+
+  .item-description {
+    padding: 1rem; /* Add padding here instead of to container */
+    text-align: left;
+  }
+
+
+
 }
