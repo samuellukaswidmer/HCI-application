@@ -82,6 +82,9 @@ h1 {
   font-size: 1rem;
   font-weight: bold;
   cursor: pointer;
+  display: block;
+  margin: 1.5rem auto 0 auto; /* center horizontally, add spacing */
+  text-align: center;
 }
 
 .yellow-button {
