@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Coca-Cola</title>
+  <link rel="stylesheet" href="../assets/styles/styles.css" />
+  <style>
+    .overlay {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: fixed;
+      inset: 0;
+      height: 100dvh;
+      text-align: center;
+      font-family: -apple-system, Helvetica, Arial, sans-serif;
+      background: #fff;
+      color: #333;
+      padding: 2rem;
+      z-index: 1000;
+      visibility: hidden;
+    }
+    .overlay.active { visibility: visible; }
+  </style>
+</head>
+<body>
+<div class="overlay" id="msg">Loading AR viewer…</div>
+
+<div class="header-bar">
+  <button class="back-button" onclick="history.back()">Back</button>
+
+  <div class="icons">
+    <img src="../assets/images/shopping-cart.svg" class="icon" alt="Cart" />
+    <div class="language-dropdown">
+      <button class="language-button" onclick="toggleLanguageSelect()">
+        <img src="../assets/images/language-symbol.svg" alt="Language" class="icon" />
+      </button>
+      <select id="language-select" onchange="changeLanguage(this.value)" class="hidden">
+        <option value="en">English</option>
+        <option value="de">Deutsch</option>
+        <option value="it">Italiano</option>
+        <option value="fr">Français</option>
+      </select>
+    </div>
+  </div>
+</div>
+
+<h1>MAD Vitamin Water</h1>
+
+<div class="dish-card">
+  <div class="dish-header">Drink Details</div>
+  <div class="dish-content">
+    <p><strong>Description:</strong><br />
+      A refreshing vitamin-infused water with a natural fruity flavor. Lightly sweetened and packed with essential vitamins to keep you energized throughout the day.</p>
+
+    <p><strong>Type:</strong><br />
+      Still vitamin water</p>
+
+    <p><strong>Serving Temp:</strong><br />
+      Best served chilled</p>
+
+    <p><strong>Allergens:</strong><br />
+      None</p>
+  </div>
+</div>
+
+<button class="ar-button">View Bottle in AR <span class="eye-icon">🥤</span></button>
+
+<script>
+  const params = new URLSearchParams(location.search);
+  const model = params.get('model') || 'MAD_Vitamin_Water';
+
+  const link = document.createElement('a');
+  link.setAttribute('rel', 'ar');
+  link.setAttribute('href', `../assets/models/${model}.usdz`);
+  document.body.appendChild(link);
+
+  const arBtn = document.querySelector('.ar-button');
+  const overlay = document.getElementById('msg');
+
+  function showOverlay(text) {
+    overlay.textContent = text;
+    overlay.classList.add('active');
+  }
+
+  function hideOverlay() {
+    overlay.classList.remove('active');
+  }
+
+  arBtn.addEventListener('click', () => {
+    showOverlay('Loading AR viewer…');
+    link.click();
+  });
+
+  link.addEventListener('click', () => {
+    showOverlay('If the AR viewer did not open, tap ALLOW or use Safari on iOS 13 +.');
+  });
+
+  window.addEventListener('focus', hideOverlay);
+</script>
+<script src="../assets/scripts/language.js"></script>
+</body>
+</html>
